@@ -2,7 +2,7 @@
 
 This project is a Job Management Platform built with React, Redux, and Tailwind CSS. It allows users to manage job postings, candidates, and assessments, providing an intuitive interface for both job seekers and recruiters.
 
-## **Features**
+## Features
 
 - **Job Management**: Recruiters can create, edit, and delete job postings.
 - **Candidate Management**: Track candidates' applications and update their status (Under Review, Interview Scheduled, etc.).
@@ -10,14 +10,14 @@ This project is a Job Management Platform built with React, Redux, and Tailwind 
 - **Routing**: The application supports routing between different views like Dashboard, Job Detail, and Candidate Detail.
 - **State Management**: Redux is used for state management and data persistence.
 
-## **Tech Stack**
+## Tech Stack
 
 - **Frontend**: React, Redux, React Router, Tailwind CSS
 - **State Management**: Redux Toolkit
 - **Styling**: Tailwind CSS
 - **Backend**: (Optional) For API calls and data storage, this app could connect to a backend API (currently uses local storage).
 
-## **File Structure**
+## File Structure
 
 /src
   ├── /assets                     # Static assets (like images, logos, etc.)
@@ -63,7 +63,7 @@ This project is a Job Management Platform built with React, Redux, and Tailwind 
   └── package.json                # Project metadata and dependencies
 
 
-## **Getting Started**
+## Getting Started
 
 To run this project locally, follow these steps:
 
