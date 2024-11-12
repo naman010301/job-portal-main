@@ -22,7 +22,7 @@ This project is a Job Management Platform built with React, Redux, and Tailwind 
 To run this project locally, follow these steps:
 
 ### 1. Clone the repository:
-git clone [https://github.com/naman010301/job-portal-main/edit/main/README.md](https://github.com/naman010301/job-portal-main/tree/main)
+git clone [https://github.com/naman010301/job-portal-main/tree/main](https://github.com/naman010301/job-portal-main/tree/main)
 
 ## 2. Install dependencies:
 
