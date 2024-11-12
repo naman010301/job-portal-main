@@ -14,9 +14,7 @@ const Dashboard = () => {
   const [jobToEdit, setJobToEdit] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Handler to add or edit job
   const handleSaveJob = () => {
-    // Check for empty title or description
     if (!newJob.title.trim() || !newJob.description.trim()) {
       alert("Both title and description are required.");
       return;
@@ -27,38 +25,34 @@ const Dashboard = () => {
         editJob({ id: jobToEdit.id, updatedJob: { ...jobToEdit, ...newJob } })
       );
     } else {
-      const jobId = Math.floor(Math.random() * 10000); // Generating a random job ID
+      const jobId = Math.floor(Math.random() * 10000);
       dispatch(addJob({ id: jobId, ...newJob, candidatesApplied: [] }));
     }
     setNewJob({ title: "", description: "" });
     setEditMode(false);
     setJobToEdit(null);
-    setIsModalOpen(false); // Close modal after save
+    setIsModalOpen(false);
   };
 
-  // Handler to initiate edit mode
   const handleEditJob = (job, e) => {
-    e.stopPropagation(); // Prevent navigating to the job detail page when clicking edit
+    e.stopPropagation();
     setNewJob({ title: job.title, description: job.description });
     setEditMode(true);
     setJobToEdit(job);
-    setIsModalOpen(true); // Open modal in edit mode
+    setIsModalOpen(true);
   };
 
-  // Handler to delete job
   const handleDeleteJob = (jobId, e) => {
-    e.stopPropagation(); // Prevent navigating to the job detail page when clicking delete
+    e.stopPropagation();
     dispatch(deleteJob(jobId));
   };
 
-  // Close modal when clicking outside
   const handleOutsideClick = (e) => {
     if (e.target.classList.contains("modal-overlay")) {
       setIsModalOpen(false);
     }
   };
 
-  // Adding event listener for outside click when modal is open
   useEffect(() => {
     if (isModalOpen) {
       window.addEventListener("click", handleOutsideClick);
@@ -84,12 +78,11 @@ const Dashboard = () => {
         </button>
       </div>
 
-      {/* Job List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {jobs.map((job) => (
           <div
             key={job.id}
-            onClick={() => navigate(`/job/${job.id}`)} // Navigate to job detail page on card click
+            onClick={() => navigate(`/job/${job.id}`)}
             className="cursor-pointer p-6 bg-gradient-to-r from-purple-700 via-purple-800 to-purple-900 rounded-lg shadow-lg hover:shadow-2xl transition duration-200 transform hover:scale-105"
           >
             <h3 className="text-2xl font-semibold text-violet-200">
@@ -100,18 +93,17 @@ const Dashboard = () => {
               Candidates Applied: {job.candidatesApplied.length}
             </p>
 
-            {/* Edit & Delete Buttons */}
             <div className="flex justify-between items-center mt-4">
               <div className="flex space-x-4">
                 <button
-                  onClick={(e) => handleEditJob(job, e)} // Stop event propagation for edit
+                  onClick={(e) => handleEditJob(job, e)}
                   className="text-yellow-400 hover:text-yellow-500 flex items-center"
                 >
                   <FaEdit className="mr-2" />
                   Edit
                 </button>
                 <button
-                  onClick={(e) => handleDeleteJob(job.id, e)} // Stop event propagation for delete
+                  onClick={(e) => handleDeleteJob(job.id, e)}
                   className="text-red-400 hover:text-red-500 flex items-center"
                 >
                   <FaTrash className="mr-2" />
@@ -123,7 +115,6 @@ const Dashboard = () => {
         ))}
       </div>
 
-      {/* Modal for Add/Edit Job */}
       {isModalOpen && (
         <div
           className="modal-overlay fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"

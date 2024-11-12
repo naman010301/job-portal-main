@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Job Management Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a Job Management Platform built with React, Redux, and Tailwind CSS. It allows users to manage job postings, candidates, and assessments, providing an intuitive interface for both job seekers and recruiters.
 
-## Available Scripts
+## **Features**
 
-In the project directory, you can run:
+- **Job Management**: Recruiters can create, edit, and delete job postings.
+- **Candidate Management**: Track candidates' applications and update their status (Under Review, Interview Scheduled, etc.).
+- **Assessments**: Admins can create assessments for job candidates with multiple-choice questions.
+- **Routing**: The application supports routing between different views like Dashboard, Job Detail, and Candidate Detail.
+- **State Management**: Redux is used for state management and data persistence.
 
-### `npm start`
+## **Tech Stack**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React, Redux, React Router, Tailwind CSS
+- **State Management**: Redux Toolkit
+- **Styling**: Tailwind CSS
+- **Backend**: (Optional) For API calls and data storage, this app could connect to a backend API (currently uses local storage).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **File Structure**
 
-### `npm test`
+/src
+  ├── /assets                     # Static assets (like images, logos, etc.)
+  │    └── logo.png
+  ├── /components                 # Reusable components
+  │    ├── Navbar.jsx             # Navbar component for navigation
+  │    ├── JobCard.jsx            # Job card component
+  │    ├── JobList.jsx            # Job listing component
+  │    ├── ApplicationCard.jsx    # Application card for each candidate
+  │    ├── AddCompanyDrawer.jsx   # Component for adding a company
+  │    ├── ApplyJobDrawer.jsx     # Component for applying to a job
+  │    ├── CreatedApplications.jsx # Component to display created applications
+  │    └── AssessmentForm.jsx     # Component for managing assessments
+  ├── /features                   # Redux slices for state management
+  │    ├── /jobSlice              # Job-related Redux slice
+  │    │    ├── jobSlice.js
+  │    │    └── jobSlice.test.js
+  │    ├── /assignmentSlice       # Assignment-related Redux slice
+  │    │    ├── assignmentSlice.js
+  │    │    └── assignmentSlice.test.js
+  │    ├── /candidateSlice        # Candidate-related Redux slice
+  │    │    ├── candidateSlice.js
+  │    │    └── candidateSlice.test.js
+  ├── /pages                      # Pages for different routes
+  │    ├── Homepage.jsx           # Homepage view
+  │    ├── Dashboard.jsx          # Dashboard view for managing jobs
+  │    ├── JobDetail.jsx          # Detailed job view
+  │    ├── CandidateDetail.jsx    # Detailed candidate view
+  │    ├── Assignments.jsx        # Page for managing assignments
+  │    └── ApplicantsPage.jsx     # Page for managing applicant details
+  ├── /redux                      # Redux store setup
+  │    └── store.js               # Central Redux store configuration
+  ├── /services                   # Data fetching logic or API helpers
+  │    └── api.js                 # API functions for interacting with the backend
+  ├── /styles                     # Global styling (Tailwind, CSS, etc.)
+  │    ├── tailwind.css           # Tailwind CSS file
+  │    └── App.css                # Global styles for the app
+  ├── /utils                      # Utility functions
+  │    ├── formatDate.js          # Date formatting utility
+  │    ├── validateForm.js        # Form validation utilities
+  ├── App.jsx                     # Main application component (includes routing)
+  ├── index.js                    # React entry point for rendering the app
+  └── package.json                # Project metadata and dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## **Getting Started**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run this project locally, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Clone the repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/yourusername/job-management-platform.git
 
-### `npm run eject`
+2. Install dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+cd job-management-platform
+npm install
+npm start
